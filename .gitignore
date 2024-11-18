@@ -1,0 +1,72 @@
+# Compiled class files
+*.class
+
+# Log files
+*.log
+logs/
+
+# Package Files
+*.war
+*.ear
+
+# Build directories (you want to keep source code but exclude compiled artifacts)
+build/
+out/
+target/
+
+# Gradle
+.gradle/
+
+# Include Gradle wrapper scripts and jar
+!gradlew
+!gradlew.bat
+!gradle/wrapper/gradle-wrapper.jar
+!gradle/wrapper/gradle-wrapper.properties
+
+# Maven (if using, otherwise keep this section as it is)
+.mvn/
+!**/mvnw
+!**/mvnw.cmd
+!**/.mvn/wrapper/maven-wrapper.jar
+!**/.mvn/wrapper/maven-wrapper.properties
+
+# Distribution directories
+/dist/
+distributions/
+
+# Spring Boot specific
+.spring-boot-devtools.properties
+
+# IDE and editor directories/files
+.idea/
+*.iws
+*.iml
+*.ipr
+.vscode/
+*.swp
+*.swo
+*.editorconfig
+*.project
+*.settings/
+/*.factorypath
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Dependency directory
+node_modules/
+
+# Coverage and Test Reports
+/test-output/
+coverage/
+*.lcov
+
+# Temporary files
+*.tmp
+*.bak
+*.old
+*.orig
+
+# Environment files
+.env

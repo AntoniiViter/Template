@@ -1,0 +1,49 @@
+services:
+  app:
+    image: antoniiviter/template:v1.0
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mongo
+      - postgres
+      - redis
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/postgres
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: password
+      SPRING_DATA_MONGODB_URI: mongodb://mongo:27017/mongo-api-db
+      SPRING_DATA_REDIS_HOST: redis
+      SPRING_DATA_REDIS_PORT: 6379
+      #OPENAI_API_KEY: ${OPENAI_API_KEY}
+    networks:
+      - custom_network
+  mongo:
+    image: mongo:latest
+    container_name: "mongoDB"
+    ports:
+      - "27017:27017"
+    networks:
+      - custom_network
+
+  postgres:
+    image: postgres:latest
+    container_name: "postgreSQL"
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "password"
+    networks:
+      - custom_network
+
+  redis:
+    image: redis:latest
+    container_name: "redis"
+    ports:
+      - "6379:6379"
+    networks:
+      - custom_network
+
+networks:
+  custom_network:
+    driver: bridge
